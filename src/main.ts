@@ -4,14 +4,10 @@ const addEmailListener = () => {
   audio.preload = "auto";
   const goodChalkStarts = [2, 3.5, 5.8, 7, 8.4, 9.2];
   if (!emailInput) return;
-  let lastVal = emailInput.value;
-  emailInput.addEventListener("value", (event) => {
-    const currVal = event.target.value;
-    if (currVal.length) {
-      lastVal = currVal;
+  emailInput.addEventListener("input", (event) => {
+    if ("data" in event && !event.data) {
       return;
     }
-    lastVal = currVal;
     let isChalking = false;
     const playChalk = () => {
       // one at a time

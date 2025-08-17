@@ -3,8 +3,8 @@ const addEmailListener = () => {
   const audio = new Audio("chalkboard.mp3");
   audio.preload = "auto";
   const goodChalkStarts = [2, 3.5, 5.8, 7, 8.4, 9.2];
-  let lastVal = emailInput.value;
   if (!emailInput) return;
+  let lastVal = emailInput.value;
   emailInput.addEventListener("value", (event) => {
     const currVal = event.target.value;
     if (currVal.length) {

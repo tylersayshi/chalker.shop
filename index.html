@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://tylur.dev/tylur.svg" />
+    <link rel="icon" type="ico" href="https://tylur.dev/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://tylur.dev/style.css" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="stylesheet" href="./doodle.css" />
+    <title>chalker.shop</title>
+    <title>chalker.shop</title>
+  </head>
+  <body>
+    <div class="doodle mx-2">
+      <h1 className="text-4xl font-bold tracking-tight">chalker.shop</h1>
+      <p>
+        hi! this is my laptop as a chalkboard. join the newsletter if you'd like
+        to follow along and buy one soon!
+      </p>
+      <form
+        action="https://buttondown.com/api/emails/embed-subscribe/tylur.dev"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.com/tylur.dev', 'popupwindow')"
+        class="flex flex-col items-center gap-2"
+      >
+        <label for="bd-email" class="font-bold">Enter your email</label>
+        <input
+          type="email"
+          name="email"
+          autocomplete="email"
+          id="bd-email"
+          pattern="[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*"
+        />
+
+        <input type="submit" value="Subscribe" />
+        <span class="text-sm text-gray-500"> PS: turn your sound on! </span>
+      </form>
+    </div>
+  </body>
+  <script>
+    const emailInput = document.querySelector("#bd-email");
+    const audio = new Audio("chalkboard.mp3");
+    audio.preload = "auto";
+    const goodChalkStarts = [2, 3.5, 5.8];
+    emailInput.addEventListener("input", (event) => {
+      if (event.key === "Space" || event.key === "Backspace") {
+        return;
+      }
+      // Play a random 0.5s segment from chalkboard.mp3
+      audio.addEventListener("loadedmetadata", () => {
+        if (goodChalkStarts.length > 0) {
+          const start =
+            goodChalkStarts[Math.floor(Math.random() * goodChalkStarts.length)];
+          console.log(start);
+          audio.currentTime = start;
+          audio.play();
+          setTimeout(() => {
+            audio.pause();
+          }, 500);
+        } else {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      });
+      // If metadata is already loaded
+      if (audio.readyState >= 1) {
+        const duration = audio.duration;
+        if (duration > 0.5) {
+          const start = Math.random() * (duration - 0.5);
+          audio.currentTime = start;
+          audio.play();
+          setTimeout(() => {
+            audio.pause();
+          }, 500);
+        } else {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      }
+    });
+  </script>
+</html>

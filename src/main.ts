@@ -15,7 +15,6 @@ const addEmailListener = () => {
       if (isChalking) return;
       const start =
         goodChalkStarts[Math.floor(Math.random() * goodChalkStarts.length)];
-      console.log({ start });
       audio.currentTime = start;
       audio.play();
       setTimeout(() => {

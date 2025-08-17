@@ -10,38 +10,36 @@
     <link rel="stylesheet" href="./doodle.css" />
     <title>chalker.shop</title>
   </head>
-  <body>
-    <div class="doodle mx-2 flex flex-col items-center gap-2">
-      <h1 className="text-4xl font-bold tracking-tight">chalker.shop</h1>
-      <p className="max-w-sm">
-        hi! this is my laptop as a chalkboard. join the newsletter if you'd like
-        to follow along and buy one soon!
-      </p>
-      <img
-        src="./images/chalker.webp"
-        alt="chalker prototype"
-        width="200"
-        height="200"
+  <body class="doodle mx-2 flex flex-col items-center gap-2">
+    <h1 className="text-4xl font-bold tracking-tight">chalker.shop</h1>
+    <p className="max-w-sm">
+      hi! this is my laptop as a chalkboard. join the newsletter if you'd like
+      to follow along and buy one soon!
+    </p>
+    <img
+      src="./images/chalker.webp"
+      alt="chalker prototype"
+      width="200"
+      height="200"
+    />
+    <form
+      action="https://buttondown.com/api/emails/embed-subscribe/tylur.dev"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.com/tylur.dev', 'popupwindow')"
+      class="flex flex-col items-center gap-2"
+    >
+      <label for="bd-email" class="font-bold">Enter your email</label>
+      <input
+        type="email"
+        name="email"
+        autocomplete="email"
+        id="bd-email"
+        pattern="[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*"
       />
-      <form
-        action="https://buttondown.com/api/emails/embed-subscribe/tylur.dev"
-        method="post"
-        target="popupwindow"
-        onsubmit="window.open('https://buttondown.com/tylur.dev', 'popupwindow')"
-        class="flex flex-col items-center gap-2"
-      >
-        <label for="bd-email" class="font-bold">Enter your email</label>
-        <input
-          type="email"
-          name="email"
-          autocomplete="email"
-          id="bd-email"
-          pattern="[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*"
-        />
 
-        <input type="submit" value="Subscribe" />
-      </form>
-    </div>
+      <input type="submit" value="Subscribe" />
+    </form>
   </body>
   <script src="./src/main.ts" type="module"></script>
 </html>

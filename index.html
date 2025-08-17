@@ -12,12 +12,18 @@
     <title>chalker.shop</title>
   </head>
   <body>
-    <div class="doodle mx-2">
+    <div class="doodle mx-2 flex flex-col items-center gap-2">
       <h1 className="text-4xl font-bold tracking-tight">chalker.shop</h1>
-      <p>
+      <p className="max-w-sm">
         hi! this is my laptop as a chalkboard. join the newsletter if you'd like
         to follow along and buy one soon!
       </p>
+      <img
+        src="./images/chalker.webp"
+        alt="chalker prototype"
+        width="200"
+        height="200"
+      />
       <form
         action="https://buttondown.com/api/emails/embed-subscribe/tylur.dev"
         method="post"
@@ -39,46 +45,5 @@
       </form>
     </div>
   </body>
-  <script>
-    const emailInput = document.querySelector("#bd-email");
-    const audio = new Audio("chalkboard.mp3");
-    audio.preload = "auto";
-    const goodChalkStarts = [2, 3.5, 5.8];
-    emailInput.addEventListener("input", (event) => {
-      if (event.key === "Space" || event.key === "Backspace") {
-        return;
-      }
-      // Play a random 0.5s segment from chalkboard.mp3
-      audio.addEventListener("loadedmetadata", () => {
-        if (goodChalkStarts.length > 0) {
-          const start =
-            goodChalkStarts[Math.floor(Math.random() * goodChalkStarts.length)];
-          console.log(start);
-          audio.currentTime = start;
-          audio.play();
-          setTimeout(() => {
-            audio.pause();
-          }, 500);
-        } else {
-          audio.currentTime = 0;
-          audio.play();
-        }
-      });
-      // If metadata is already loaded
-      if (audio.readyState >= 1) {
-        const duration = audio.duration;
-        if (duration > 0.5) {
-          const start = Math.random() * (duration - 0.5);
-          audio.currentTime = start;
-          audio.play();
-          setTimeout(() => {
-            audio.pause();
-          }, 500);
-        } else {
-          audio.currentTime = 0;
-          audio.play();
-        }
-      }
-    });
-  </script>
+  <script src="./src/main.ts"></script>
 </html>

@@ -22,7 +22,7 @@
 }
 
 .doodle a {
-  color: #1c1c1c;
+  /* color: #1c1c1c; */
   font-weight: bold;
 }
 
@@ -133,13 +133,13 @@
   background-color: unset;
   font-family: inherit;
   font-size: 1em;
-  color: #3c3c3c;
+  /* color: #3c3c3c; */
 }
 
-.doodle button:disabled,
+/* .doodle button:disabled,
 .doodle input[type="submit"]:disabled {
   color: grey;
-}
+} */
 
 .doodle input[type="checkbox"] {
   border-width: 6px 6px 6px 6px;
